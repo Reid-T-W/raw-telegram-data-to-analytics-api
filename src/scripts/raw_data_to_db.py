@@ -1,4 +1,6 @@
 import csv
+import os
+import re
 import psycopg2
 
 def create_connection():
@@ -41,6 +43,17 @@ def create_table(conn, type):
             )
             """
         )
+    elif type == "messages_images":
+        command = (
+            """
+            CREATE TABLE messages_images (
+                id SERIAL PRIMARY KEY,
+                channel_name VARCHAR(255) NOT NULL,
+                message_id VARCHAR(255) NOT NULL,
+                has_image BOOLEAN NOT NULL
+            )
+            """
+        )
     
     try:
         cur = conn.cursor()
@@ -49,7 +62,7 @@ def create_table(conn, type):
         print(error)
 
 
-def post_to_db(reader, conn, type):
+def post_to_db(reader=None, conn=None, type=None, messages_with_images = None, channel_name=None):
     if type == 'messages':
         posts = []
         for data in reader:
@@ -66,32 +79,62 @@ def post_to_db(reader, conn, type):
         extracts_data = extracts[1:]
         cur = conn.cursor()
         cur.executemany("INSERT INTO llm_extracts_for_messages (channel_name, message_id, intent, product_name) VALUES(%s,%s,%s,%s)", extracts_data)
+    elif type == "messages_images":
+        for message_id in messages_with_images:
+            cur = conn.cursor()
+            cur.execute("INSERT INTO messages_images (channel_name, message_id, has_image) VALUES(%s, %s,%s)", (channel_name, message_id, True))
+
 
 if __name__ == "__main__":
-    message_locations = [
-        r"src\data\raw\telegram_messages\CheMed123\messages.csv",
-        r"src\data\raw\telegram_messages\HakimApps_Guideline\messages.csv",
-        r"src\data\raw\telegram_messages\lobelia4cosmetics\messages.csv",
-        r"src\data\raw\telegram_messages\tenamereja\messages.csv",
-        r"src\data\raw\telegram_messages\tikvahpharma\messages.csv"
+    # message_locations = [
+    #     r"src\data\raw\telegram_messages\CheMed123\messages.csv",
+    #     r"src\data\raw\telegram_messages\HakimApps_Guideline\messages.csv",
+    #     r"src\data\raw\telegram_messages\lobelia4cosmetics\messages.csv",
+    #     r"src\data\raw\telegram_messages\tenamereja\messages.csv",
+    #     r"src\data\raw\telegram_messages\tikvahpharma\messages.csv"
+    # ]
+
+    image_directories = [
+        r"src\data\raw\telegram_messages\CheMed123",
+        r"src\data\raw\telegram_messages\HakimApps_Guideline",
+        r"src\data\raw\telegram_messages\lobelia4cosmetics",
+        r"src\data\raw\telegram_messages\tenamereja",
+        r"src\data\raw\telegram_messages\tikvahpharma"
     ]
 
-    # Populating data into message table
+    # # Populating data into message table
     conn = create_connection()
-    create_table(conn, 'messages')
+    # create_table(conn, 'messages')
     
-    for location in message_locations:
-        csv_file = location
-        with open(csv_file, "r", newline="", encoding="utf-8") as csvfile:
-            reader = csv.reader(csvfile)
-            post_to_db(reader, conn, 'messages')
+    # for location in message_locations:
+    #     csv_file = location
+    #     with open(csv_file, "r", newline="", encoding="utf-8") as csvfile:
+    #         reader = csv.reader(csvfile)
+    #         post_to_db(reader, conn, 'messages')
     
-    # Populating data into llm_extracts_for_messages table
-    create_table(conn, 'llm_extracts')
-    csv_file = r"src\data\raw\extracted_llm_data.csv"
-    with open(csv_file, "r", newline="", encoding="utf-8") as csvfile:
-        reader = csv.reader(csvfile)
-        post_to_db(reader, conn, 'llm_extracts')
+    # # Populating data into llm_extracts_for_messages table
+    # create_table(conn, 'llm_extracts')
+    # csv_file = r"src\data\raw\extracted_llm_data.csv"
+    # with open(csv_file, "r", newline="", encoding="utf-8") as csvfile:
+    #     reader = csv.reader(csvfile)
+    #     post_to_db(reader, conn, 'llm_extracts')
+
+    # # Populating data on images
+    create_table(conn, 'messages_images')
+
+    messages_with_images = []
+    for directory in image_directories:
+        # Extract channel name
+        channel_name = os.path.basename(directory).split('\\')[-1]
+        for entry in os.scandir(directory):  
+            if entry.is_file():
+                print(entry.path)
+                entries = os.path.basename(entry.path).split('_')  
+                if len(entries) > 1:
+                    messages_with_images.append(entries[1])
+        post_to_db(conn=conn, type='messages_images', messages_with_images=messages_with_images, channel_name=channel_name)
+
+
 
 
 
