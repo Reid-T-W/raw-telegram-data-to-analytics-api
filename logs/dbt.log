@@ -1,0 +1,161 @@
+[0m20:56:46.275095 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016D3B65B880>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016D3D970430>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016D3D970220>]}
+
+
+============================== 20:56:46.311441 | 1a6bea0d-37ca-42e0-91da-2a787caea0bb ==============================
+[0m20:56:46.311441 [info ] [MainThread]: Running with dbt=1.10.4
+[0m20:56:46.312441 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\redie\\.dbt', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'logs', 'warn_error': 'None', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'invocation_command': 'dbt init telegram-medical-data-dbt-project', 'introspect': 'True', 'log_format': 'default', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m20:56:46.560159 [info ] [MainThread]: Creating dbt configuration folder at C:\Users\redie\.dbt
+[0m20:57:16.781237 [debug] [MainThread]: Starter project path: D:\Software Career\Kifiya 10 Academy\week-7 - data engineering and analytics\raw-telegram-data-to-analytics-api\venv\lib\site-packages\dbt\include\starter_project
+[0m20:57:16.917203 [info ] [MainThread]: 
+Your new dbt project "telegram_medical_data_dbt_project" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m20:57:16.918222 [info ] [MainThread]: Setting up your profile.
+[0m21:03:57.205206 [info ] [MainThread]: Profile telegram_medical_data_dbt_project written to C:\Users\redie\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m21:03:57.208188 [debug] [MainThread]: Command `dbt init` succeeded at 21:03:57.208188 after 431.04 seconds
+[0m21:03:57.209219 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016D3B65B880>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016D3D9701F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000016D3DA98FA0>]}
+[0m21:03:57.209219 [debug] [MainThread]: Flushing usage events
+[0m21:03:58.339651 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:05:08.841464 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002112150B820>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000211228449A0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021122844730>]}
+
+
+============================== 21:05:08.853391 | 02fba8ed-2ab4-4b06-8116-559bddeca0f1 ==============================
+[0m21:05:08.853391 [info ] [MainThread]: Running with dbt=1.10.4
+[0m21:05:08.854394 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\redie\\.dbt', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'logs', 'warn_error': 'None', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'invocation_command': 'dbt debug', 'static_parser': 'True', 'introspect': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m21:05:08.981070 [info ] [MainThread]: dbt version: 1.10.4
+[0m21:05:08.981070 [info ] [MainThread]: python version: 3.10.0
+[0m21:05:08.982024 [info ] [MainThread]: python path: D:\Software Career\Kifiya 10 Academy\week-7 - data engineering and analytics\raw-telegram-data-to-analytics-api\venv\Scripts\python.exe
+[0m21:05:08.983024 [info ] [MainThread]: os info: Windows-10-10.0.22631-SP0
+[0m21:05:09.112636 [info ] [MainThread]: Using profiles dir at C:\Users\redie\.dbt
+[0m21:05:09.113636 [info ] [MainThread]: Using profiles.yml file at C:\Users\redie\.dbt\profiles.yml
+[0m21:05:09.114654 [info ] [MainThread]: Using dbt_project.yml file at D:\Software Career\Kifiya 10 Academy\week-7 - data engineering and analytics\raw-telegram-data-to-analytics-api\dbt_project.yml
+[0m21:05:09.116696 [info ] [MainThread]: adapter type: postgres
+[0m21:05:09.117643 [info ] [MainThread]: adapter version: 1.9.0
+[0m21:05:09.118637 [info ] [MainThread]: Configuration:
+[0m21:05:09.119641 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m21:05:09.120636 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m21:05:09.121649 [info ] [MainThread]: Required dependencies:
+[0m21:05:09.121649 [debug] [MainThread]: Executing "git --help"
+[0m21:05:09.168164 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--config-env=<name>=<envvar>] <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m21:05:09.170480 [debug] [MainThread]: STDERR: "b''"
+[0m21:05:09.170480 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m21:05:09.171490 [info ] [MainThread]: Connection:
+[0m21:05:09.172477 [info ] [MainThread]:   host: localhost
+[0m21:05:09.173479 [info ] [MainThread]:   port: 5432
+[0m21:05:09.174480 [info ] [MainThread]:   user: postgres
+[0m21:05:09.174480 [info ] [MainThread]:   database: telegram-raw-medical-data
+[0m21:05:09.175480 [info ] [MainThread]:   schema: public
+[0m21:05:09.176510 [info ] [MainThread]:   connect_timeout: 10
+[0m21:05:09.176510 [info ] [MainThread]:   role: None
+[0m21:05:09.177477 [info ] [MainThread]:   search_path: None
+[0m21:05:09.178477 [info ] [MainThread]:   keepalives_idle: 0
+[0m21:05:09.179480 [info ] [MainThread]:   sslmode: None
+[0m21:05:09.179480 [info ] [MainThread]:   sslcert: None
+[0m21:05:09.180478 [info ] [MainThread]:   sslkey: None
+[0m21:05:09.181499 [info ] [MainThread]:   sslrootcert: None
+[0m21:05:09.181499 [info ] [MainThread]:   application_name: dbt
+[0m21:05:09.182486 [info ] [MainThread]:   retries: 1
+[0m21:05:09.183499 [info ] [MainThread]: Registered adapter: postgres=1.9.0
+[0m21:05:09.777922 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m21:05:13.497039 [debug] [MainThread]: Using postgres connection "debug"
+[0m21:05:13.497039 [debug] [MainThread]: On debug: select 1 as id
+[0m21:05:13.498038 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m21:05:15.768205 [debug] [MainThread]: SQL status: SELECT 1 in 2.271 seconds
+[0m21:05:15.770225 [debug] [MainThread]: On debug: Close
+[0m21:05:15.771229 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m21:05:15.772212 [info ] [MainThread]: [31m1 check failed:[0m
+[0m21:05:15.772212 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <D:\Software Career\Kifiya 10 Academy\week-7 - data engineering and analytics\raw-telegram-data-to-analytics-api\dbt_project.yml> not found
+
+[0m21:05:15.774213 [debug] [MainThread]: Command `dbt debug` failed at 21:05:15.774213 after 7.03 seconds
+[0m21:05:15.775217 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m21:05:15.775217 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002112150B820>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021122996E90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021122996D70>]}
+[0m21:05:15.776216 [debug] [MainThread]: Flushing usage events
+[0m21:05:17.117735 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:10:48.224829 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B71319B7F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B7144D4970>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B7144D4790>]}
+
+
+============================== 21:10:48.228471 | c2aa23df-c067-45fe-b733-c4b856945556 ==============================
+[0m21:10:48.228471 [info ] [MainThread]: Running with dbt=1.10.4
+[0m21:10:48.229477 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\redie\\.dbt', 'version_check': 'True', 'warn_error': 'None', 'log_path': 'logs', 'fail_fast': 'False', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'invocation_command': 'dbt init .', 'log_format': 'default', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m21:10:55.360013 [error] [MainThread]: Encountered an error:
+
+[0m21:10:55.428365 [error] [MainThread]: Traceback (most recent call last):
+  File "D:\Software Career\Kifiya 10 Academy\week-7 - data engineering and analytics\raw-telegram-data-to-analytics-api\venv\lib\site-packages\dbt\cli\requires.py", line 161, in wrapper
+    result, success = func(*args, **kwargs)
+  File "D:\Software Career\Kifiya 10 Academy\week-7 - data engineering and analytics\raw-telegram-data-to-analytics-api\venv\lib\site-packages\dbt\cli\requires.py", line 111, in wrapper
+    return func(*args, **kwargs)
+  File "D:\Software Career\Kifiya 10 Academy\week-7 - data engineering and analytics\raw-telegram-data-to-analytics-api\venv\lib\site-packages\dbt\cli\main.py", line 483, in init
+    results = task.run()
+  File "D:\Software Career\Kifiya 10 Academy\week-7 - data engineering and analytics\raw-telegram-data-to-analytics-api\venv\lib\site-packages\dbt\task\init.py", line 324, in run
+    project_name = self.get_valid_project_name()
+  File "D:\Software Career\Kifiya 10 Academy\week-7 - data engineering and analytics\raw-telegram-data-to-analytics-api\venv\lib\site-packages\dbt\task\init.py", line 278, in get_valid_project_name
+    name = click.prompt("Enter a name for your project (letters, digits, underscore)")
+  File "D:\Software Career\Kifiya 10 Academy\week-7 - data engineering and analytics\raw-telegram-data-to-analytics-api\venv\lib\site-packages\click\termui.py", line 168, in prompt
+    value = prompt_func(prompt)
+  File "D:\Software Career\Kifiya 10 Academy\week-7 - data engineering and analytics\raw-telegram-data-to-analytics-api\venv\lib\site-packages\click\termui.py", line 151, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m21:10:55.430791 [debug] [MainThread]: Command `dbt init` failed at 21:10:55.430791 after 7.32 seconds
+[0m21:10:55.432270 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B71319B7F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B7144CCCD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B7144CCC70>]}
+[0m21:10:55.432270 [debug] [MainThread]: Flushing usage events
+[0m12:04:33.668184 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AF382BB7F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AF3960C3D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AF3960C1F0>]}
+
+
+============================== 12:04:33.696156 | 25fea0ff-7510-4d21-92f9-a1e3d57baadc ==============================
+[0m12:04:33.696156 [info ] [MainThread]: Running with dbt=1.10.4
+[0m12:04:33.698105 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\redie\\.dbt', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'logs', 'warn_error': 'None', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt run --target dev-latest', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True'}
+[0m12:04:33.700103 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path D:\Software Career\Kifiya 10 Academy\week-7 - data engineering and analytics\raw-telegram-data-to-analytics-api\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m12:04:33.703189 [debug] [MainThread]: Command `dbt run` failed at 12:04:33.703189 after 0.19 seconds
+[0m12:04:33.704193 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AF382BB7F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AF3960C4C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AF3960C490>]}
+[0m12:04:33.718235 [debug] [MainThread]: Flushing usage events
+[0m12:04:39.865454 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m12:05:01.281540 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D3C384B880>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D3C4B903D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D3C4B901F0>]}
+
+
+============================== 12:05:01.291542 | f7638e69-4670-4732-a91d-2d7331ca51f6 ==============================
+[0m12:05:01.291542 [info ] [MainThread]: Running with dbt=1.10.4
+[0m12:05:01.293544 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'debug': 'False', 'log_path': 'logs', 'fail_fast': 'False', 'profiles_dir': 'C:\\Users\\redie\\.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'log_format': 'default', 'invocation_command': 'dbt run --target dev-latest', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m12:05:01.294548 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path D:\Software Career\Kifiya 10 Academy\week-7 - data engineering and analytics\raw-telegram-data-to-analytics-api\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m12:05:01.295551 [debug] [MainThread]: Command `dbt run` failed at 12:05:01.295551 after 0.21 seconds
+[0m12:05:01.296621 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D3C384B880>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D3C4B904C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D3C4B90490>]}
+[0m12:05:01.297617 [debug] [MainThread]: Flushing usage events
+[0m12:05:02.186215 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m12:17:37.294159 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000253FF3AB8B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000253808503D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000253808501F0>]}
+
+
+============================== 12:17:37.303787 | a90d56be-e59b-41f1-92b8-5c6421943734 ==============================
+[0m12:17:37.303787 [info ] [MainThread]: Running with dbt=1.10.4
+[0m12:17:37.304791 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'logs', 'profiles_dir': 'C:\\Users\\redie\\.dbt', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'target_path': 'None', 'invocation_command': 'dbt run --target dev-latest', 'send_anonymous_usage_stats': 'True'}
+[0m12:17:37.305787 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path D:\Software Career\Kifiya 10 Academy\week-7 - data engineering and analytics\raw-telegram-data-to-analytics-api\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m12:17:37.307777 [debug] [MainThread]: Command `dbt run` failed at 12:17:37.307777 after 0.13 seconds
+[0m12:17:37.308776 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000253FF3AB8B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000253808504C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025380850490>]}
+[0m12:17:37.309864 [debug] [MainThread]: Flushing usage events
+[0m12:17:38.444202 [debug] [MainThread]: An error was encountered while trying to flush usage events
