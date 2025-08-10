@@ -1,0 +1,43 @@
+version: 2
+
+sources:
+  # - name: raw
+  - name: public
+    tables:
+      - name: messages
+      - name: llm_extracts_for_messages
+      - name: messages_images
+      # - name: telegram-raw-medical-data
+
+models:
+  - name: stg_messages
+    description: "Cleaned up staging model for public.telegram-raw-medical-data-v2.messages"
+    columns:
+      - name: id
+        description: "Primary key for messages"
+      - name: channel_name
+        description: "Telegram channel name"
+      - name: message_id
+        description: "Telegram message id"
+      - name: date_posted
+        description: "message post date"
+      - name: message_text
+        description: "Telegram message content"
+      - name: has_image
+        description: "Set to True if the message has an image associated with it"
+  - name: stg_llm_extracts_for_messages
+    description: "Cleaned up staging model for public.telegram-raw-medical-data-v2.llm_extracts_for_messages"
+    columns:
+      - name: id
+        description: "Primary key for messages"
+      - name: channel_name
+        description: "Telegram channel name"
+      - name: message_id
+        description: "Telegram message id"
+      - name: intent
+        description: "Explains the main purpose of the message"
+      - name: product_name
+        description: "If the intent was product promotion, this displays the product name else -"
+
+    
+
