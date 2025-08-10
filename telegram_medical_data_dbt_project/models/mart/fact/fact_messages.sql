@@ -6,7 +6,8 @@ select
     d.id as date_dim_id,
     llm.message_id as llm_message_id,
     llm.intent,
-    llm.product_name
+    llm.product_name,
+    m.has_image
 from {{ ref('stg_messages') }} as m
 left join {{ ref('dim_channels')}} as c
 on m.channel_name = c.channel_name

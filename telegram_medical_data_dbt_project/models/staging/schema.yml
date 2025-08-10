@@ -6,6 +6,7 @@ sources:
     tables:
       - name: messages
       - name: llm_extracts_for_messages
+      - name: messages_images
       # - name: telegram-raw-medical-data
 
 models:
@@ -22,6 +23,8 @@ models:
         description: "message post date"
       - name: message_text
         description: "Telegram message content"
+      - name: has_image
+        description: "Set to True if the message has an image associated with it"
   - name: stg_llm_extracts_for_messages
     description: "Cleaned up staging model for public.telegram-raw-medical-data-v2.llm_extracts_for_messages"
     columns:

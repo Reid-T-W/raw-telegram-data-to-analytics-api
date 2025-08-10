@@ -133,7 +133,7 @@ if __name__ == "__main__":
                 if len(entries) > 1:
                     messages_with_images.append(entries[1])
         post_to_db(conn=conn, type='messages_images', messages_with_images=messages_with_images, channel_name=channel_name)
-
+        messages_with_images = []
 
 
 
