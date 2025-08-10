@@ -7,6 +7,7 @@ sources:
       - name: messages
       - name: llm_extracts_for_messages
       - name: messages_images
+      - name: image_items
       # - name: telegram-raw-medical-data
 
 models:
@@ -38,6 +39,14 @@ models:
         description: "Explains the main purpose of the message"
       - name: product_name
         description: "If the intent was product promotion, this displays the product name else -"
-
-    
-
+  - name: stg_image_items
+    description: "Cleaned up staging model for public.telegram-raw-medical-data-v2.image_items"
+    columns:
+      - name: id
+        description: "Primary key for messages"
+      - name: channel_name
+        description: "Telegram channel name"
+      - name: message_id
+        description: "Telegram message id"
+      - name: item
+        description: "The class classified by Yolo11 model"

@@ -54,7 +54,17 @@ def create_table(conn, type):
             )
             """
         )
-    
+    elif type == "image_items":
+        command = (
+            """
+            CREATE TABLE image_items (
+                id SERIAL PRIMARY KEY,
+                channel_name VARCHAR(255) NOT NULL,
+                message_id VARCHAR(255) NOT NULL,
+                item VARCHAR(255) NULL
+            )
+            """
+        )
     try:
         cur = conn.cursor()
         cur.execute(command)
@@ -62,7 +72,7 @@ def create_table(conn, type):
         print(error)
 
 
-def post_to_db(reader=None, conn=None, type=None, messages_with_images = None, channel_name=None):
+def post_to_db(reader=None, conn=None, type=None, messages_with_images = None, channel_name=None, all_yolo_detections=None):
     if type == 'messages':
         posts = []
         for data in reader:
@@ -83,6 +93,11 @@ def post_to_db(reader=None, conn=None, type=None, messages_with_images = None, c
         for message_id in messages_with_images:
             cur = conn.cursor()
             cur.execute("INSERT INTO messages_images (channel_name, message_id, has_image) VALUES(%s, %s,%s)", (channel_name, message_id, True))
+    elif type == "image_items":
+        for yolo_detection in all_yolo_detections:
+            cur = conn.cursor()
+            # print("yolo detection: ", yolo_detection)
+            cur.execute("INSERT INTO image_items (channel_name, message_id, item) VALUES(%s, %s, %s)", (yolo_detection[0], yolo_detection[1], yolo_detection[2]))  
 
 
 if __name__ == "__main__":
@@ -94,13 +109,13 @@ if __name__ == "__main__":
     #     r"src\data\raw\telegram_messages\tikvahpharma\messages.csv"
     # ]
 
-    image_directories = [
-        r"src\data\raw\telegram_messages\CheMed123",
-        r"src\data\raw\telegram_messages\HakimApps_Guideline",
-        r"src\data\raw\telegram_messages\lobelia4cosmetics",
-        r"src\data\raw\telegram_messages\tenamereja",
-        r"src\data\raw\telegram_messages\tikvahpharma"
-    ]
+    # image_directories = [
+    #     r"src\data\raw\telegram_messages\CheMed123",
+    #     r"src\data\raw\telegram_messages\HakimApps_Guideline",
+    #     r"src\data\raw\telegram_messages\lobelia4cosmetics",
+    #     r"src\data\raw\telegram_messages\tenamereja",
+    #     r"src\data\raw\telegram_messages\tikvahpharma"
+    # ]
 
     # # Populating data into message table
     conn = create_connection()
@@ -120,20 +135,57 @@ if __name__ == "__main__":
     #     post_to_db(reader, conn, 'llm_extracts')
 
     # # Populating data on images
-    create_table(conn, 'messages_images')
+    # create_table(conn, 'messages_images')
 
-    messages_with_images = []
-    for directory in image_directories:
-        # Extract channel name
-        channel_name = os.path.basename(directory).split('\\')[-1]
-        for entry in os.scandir(directory):  
-            if entry.is_file():
-                print(entry.path)
-                entries = os.path.basename(entry.path).split('_')  
-                if len(entries) > 1:
-                    messages_with_images.append(entries[1])
-        post_to_db(conn=conn, type='messages_images', messages_with_images=messages_with_images, channel_name=channel_name)
-        messages_with_images = []
+    # messages_with_images = []
+    # for directory in image_directories:
+    #     # Extract channel name
+    #     channel_name = os.path.basename(directory).split('\\')[-1]
+    #     for entry in os.scandir(directory):  
+    #         if entry.is_file():
+    #             print(entry.path)
+    #             entries = os.path.basename(entry.path).split('_')  
+    #             if len(entries) > 1:
+    #                 messages_with_images.append(entries[1])
+    #     post_to_db(conn=conn, type='messages_images', messages_with_images=messages_with_images, channel_name=channel_name)
+    #     messages_with_images = []
+
+    # Populating yolo data
+    # Create table
+    create_table(conn, 'image_items')
+    all_yolo_detections = []
+    # Read data from excel
+    csv_file = r"src\data\raw\yolo_detctions.csv"
+    with open(csv_file, "r", newline="", encoding="utf-8") as csvfile:
+        reader = csv.reader(csvfile)
+        for data in reader:
+            # print(data)
+            # channel_name = os.path.basename(data[0]).split('/')[-1]
+            channel_name = os.path.basename(os.path.dirname(data[0]))
+            message_id = os.path.basename(data[0]).split('_')[1]
+            if len(data) > 0:
+                detections = data[1].split(',')
+                for record in detections:
+                    data_to_insert = [channel_name, message_id, record]
+                    all_yolo_detections.append(data_to_insert)
+    post_to_db(conn=conn, type='image_items', all_yolo_detections=all_yolo_detections)
+    # print(all_yolo_detections)
+
+
+            # posts.append(data)
+
+
+    # for directory in image_directories:
+    #     # Extract channel name
+    #     channel_name = os.path.basename(directory).split('\\')[-1]
+    #     for entry in os.scandir(directory):  
+    #         if entry.is_file():
+    #             print(entry.path)
+    #             entries = os.path.basename(entry.path).split('_')  
+    #             if len(entries) > 1:
+    #                 message_id = entries[1]
+
+
 
 
 
