@@ -14,3 +14,20 @@ class AnalyticsService:
     @staticmethod
     def get_message_analytics(session: Session):
         return crud.AnalyticsCrud.get_message_analytics(session)
+    
+    @staticmethod
+    def get_message_analytics_day_aggregate(session: Session):
+        return crud.AnalyticsCrud.get_message_analytics_day_aggregate(session)
+    
+    @staticmethod
+    def get_message_analytics_mothly_aggregate(session: Session):
+        return crud.AnalyticsCrud.get_message_analytics_mothly_aggregate(session)
+    
+    @staticmethod
+    def get_message_analytics_yearly_aggregate(session: Session):
+        return crud.AnalyticsCrud.get_message_analytics_yearly_aggregate(session)
+    
+    @staticmethod
+    def get_message_image_analytics(session: Session):
+        return crud.AnalyticsCrud.get_message_image_analytics(session)
+    

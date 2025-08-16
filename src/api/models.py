@@ -55,3 +55,31 @@ class AggTopProducts(Base_Analytics_Datastore):
     product_name = Column(String(5000), primary_key=True, unique=True)
     count = Column(BigInteger, nullable=True)
 
+class AggMessagesDaily(Base_Analytics_Datastore):
+    __tablename__ = 'agg_messages_daily'
+    __table_args__ = {"schema": "public_mart"}
+
+    day = Column(Float, nullable=True, primary_key=True)
+    month = Column(Float, nullable=True, primary_key=True)
+    year = Column(Float, nullable=True, primary_key=True)
+    count = Column(BigInteger, nullable=True)
+
+class AggMessagesMonthly(Base_Analytics_Datastore):
+    __tablename__ = 'agg_messages_monthly'
+    __table_args__ = {"schema": "public_mart"}
+
+    month = Column(Float, nullable=True, primary_key=True)
+    year = Column(Float, nullable=True, primary_key=True)
+    count = Column(BigInteger, nullable=True)
+
+
+class AggMessagesYearly(Base_Analytics_Datastore):
+    __tablename__ = 'agg_messages_yearly'
+    __table_args__ = {"schema": "public_mart"}
+
+    year = Column(Float, nullable=True, primary_key=True)
+    count = Column(BigInteger, nullable=True)
+
+
+
+

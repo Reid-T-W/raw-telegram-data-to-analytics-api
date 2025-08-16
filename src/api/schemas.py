@@ -29,3 +29,20 @@ class AggTopProductsSchema(BaseModel):
 class MessageAnalyticsSchema(BaseModel):
     total_no_of_messages: int
     messages_per_channel: dict
+
+class MessageWithImagesAnalyticsSchema(BaseModel):
+    total_no_of_messages_with_images: int
+    messages_with_images_per_channel: dict
+
+class MessageAnalyticsDayAggregateSchema(BaseModel):
+    day: float
+    month: float
+    year: float
+    count: int
+class MessageAnalyticsMonthlyAggregateSchema(BaseModel):
+    month: float
+    year: float
+    count: int
+class MessageAnalyticsYearlyAggregateSchema(BaseModel):
+    year: float
+    count: int

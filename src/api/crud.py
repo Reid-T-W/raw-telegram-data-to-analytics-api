@@ -41,3 +41,38 @@ class AnalyticsCrud:
         )
 
         return message_analytics
+
+    @staticmethod
+    def get_message_analytics_day_aggregate(session: Session):
+        return session.query(models.AggMessagesDaily).all()
+
+    @staticmethod
+    def get_message_analytics_mothly_aggregate(session: Session):
+        return session.query(models.AggMessagesMonthly).all()
+
+    @staticmethod
+    def get_message_analytics_yearly_aggregate(session: Session):
+        return session.query(models.AggMessagesYearly).all()
+    
+    @staticmethod
+    def get_message_image_analytics(session: Session):
+        # Get Total no of messages with images
+        total_no_of_messages_with_images = session.query(models.FctImageDetection).count()
+        
+        # Total no of messages with images in each channel
+        count_by_channel = session.query(
+                                            models.FctImageDetection.channel_name, 
+                                            func.count(models.FctImageDetection.id).label('message_with_image_count')
+                                        ).group_by(models.FctImageDetection.channel_name)
+        
+        # Prepare payload
+        messages_with_images_per_channel = {}
+        for data in count_by_channel:
+            messages_with_images_per_channel[data[0]] = data[1]
+
+        message_analytics = schemas.MessageWithImagesAnalyticsSchema(
+            total_no_of_messages_with_images=total_no_of_messages_with_images,
+            messages_with_images_per_channel=messages_with_images_per_channel
+        )
+
+        return message_analytics
