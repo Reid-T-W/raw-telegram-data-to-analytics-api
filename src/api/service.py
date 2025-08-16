@@ -38,4 +38,10 @@ class AnalyticsService:
     @staticmethod
     def get_intent_analytics_per_channel(session: Session):
         return crud.AnalyticsCrud.get_intent_analytics_per_channel(session)
+
+class SearchService:
+    
+    @staticmethod
+    def search(session: Session, query: str):
+        return crud.SearchCrud.search(session, query)
     

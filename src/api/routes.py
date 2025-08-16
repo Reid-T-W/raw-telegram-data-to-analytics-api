@@ -61,3 +61,10 @@ def get_intent_analytics_per_channel(
     session: Session = Depends(get_analytics_datastore_db)
 ):
     return service.AnalyticsService.get_intent_analytics_per_channel(session)
+
+@router.get("/search/messages", response_model = list[FactMessageSchema])
+def search_messages(
+    query: str,
+    session: Session = Depends(get_analytics_datastore_db), 
+    ):
+    return service.SearchService.search(session, query)

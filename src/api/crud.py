@@ -121,3 +121,11 @@ class AnalyticsCrud:
 
             response.append(analytics_summary)
         return response
+    
+class SearchCrud:
+
+    @staticmethod
+    def search(session: Session, query: str):
+        search_results = session.query(models.FactMessage).filter(models.FactMessage.message_text.ilike('%' + query + '%'))
+
+        return search_results
