@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from fastapi import APIRouter, Depends, HTTPException
 from api import service
 from api.conn_db import get_analytics_datastore_db
-from api.schemas import AggTopProductsSchema, FactMessageSchema, MessageAnalyticsDayAggregateSchema, MessageAnalyticsMonthlyAggregateSchema, MessageAnalyticsSchema, MessageAnalyticsYearlyAggregateSchema, MessageWithImagesAnalyticsSchema
+from api.schemas import AggTopProductsSchema, FactMessageSchema, IntentAnalyticsPerChannelSchema, IntentAnalyticsSchema, MessageAnalyticsDayAggregateSchema, MessageAnalyticsMonthlyAggregateSchema, MessageAnalyticsSchema, MessageAnalyticsYearlyAggregateSchema, MessageWithImagesAnalyticsSchema
 
 router = APIRouter()
 
@@ -49,3 +49,15 @@ def get_message_image_analytics(
     session: Session = Depends(get_analytics_datastore_db)
 ):
     return service.AnalyticsService.get_message_image_analytics(session)
+
+@router.get("/intent-analytics", response_model = list[IntentAnalyticsSchema])
+def get_intent_analytics(
+    session: Session = Depends(get_analytics_datastore_db)
+):
+    return service.AnalyticsService.get_intent_analytics(session)
+
+@router.get("/intent-analytics/per_channel", response_model = list[IntentAnalyticsPerChannelSchema])
+def get_intent_analytics_per_channel(
+    session: Session = Depends(get_analytics_datastore_db)
+):
+    return service.AnalyticsService.get_intent_analytics_per_channel(session)

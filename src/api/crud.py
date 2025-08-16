@@ -1,5 +1,6 @@
 
 
+from re import L
 from sqlalchemy.orm import Session, aliased
 from sqlalchemy import func
 from api import models
@@ -76,3 +77,47 @@ class AnalyticsCrud:
         )
 
         return message_analytics
+    
+    @staticmethod
+    def get_intent_analytics(session: Session):
+        intent_analytics = session.query(
+                                            models.FactMessage.intent, 
+                                            func.count(models.FactMessage.id).label('count')
+                                        ).group_by(models.FactMessage.intent)
+        return intent_analytics
+
+    @staticmethod
+    def get_intent_analytics_per_channel(session: Session):
+        
+        # Get all channels
+        channels = session.query(
+            models.DimChannels
+        )
+
+        # Iterate through the channels and get the intents per channel
+        response = []
+        for channel in channels:
+            # Get intent summary
+            intent_analytics_per_channel = session.query(
+                                    models.FactMessage.intent,
+                                    func.count(models.FactMessage.id).label('count')
+                                ).filter(models.FactMessage.channel_dim_id==channel.id) \
+                                .group_by(models.FactMessage.intent)
+            
+            per_channel_intent_summary = []
+
+            for record in intent_analytics_per_channel:
+                data = schemas.IntentAnalyticsSchema(
+                    intent=record.intent,
+                    count=record.count
+                )
+
+                per_channel_intent_summary.append(data)
+            
+            analytics_summary = schemas.IntentAnalyticsPerChannelSchema(
+                channel_name = channel.channel_name,
+                summary = per_channel_intent_summary
+            )
+
+            response.append(analytics_summary)
+        return response

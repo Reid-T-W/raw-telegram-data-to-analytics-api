@@ -46,3 +46,11 @@ class MessageAnalyticsMonthlyAggregateSchema(BaseModel):
 class MessageAnalyticsYearlyAggregateSchema(BaseModel):
     year: float
     count: int
+
+class IntentAnalyticsSchema(BaseModel):
+    intent: str
+    count: int
+
+class IntentAnalyticsPerChannelSchema(BaseModel):
+    channel_name: str
+    summary: list[IntentAnalyticsSchema]

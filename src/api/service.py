@@ -31,3 +31,11 @@ class AnalyticsService:
     def get_message_image_analytics(session: Session):
         return crud.AnalyticsCrud.get_message_image_analytics(session)
     
+    @staticmethod
+    def get_intent_analytics(session: Session):
+        return crud.AnalyticsCrud.get_intent_analytics(session)
+    
+    @staticmethod
+    def get_intent_analytics_per_channel(session: Session):
+        return crud.AnalyticsCrud.get_intent_analytics_per_channel(session)
+    
