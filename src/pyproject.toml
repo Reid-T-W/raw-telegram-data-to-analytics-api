@@ -1,0 +1,25 @@
+[project]
+name = "src"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Reid-T-W",email = "rediettadesse100@gmail.com"}
+]
+package-mode = false
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "alembic (>=1.16.4,<2.0.0)",
+    "pydantic[email] (>=2.10.6,<3.0.0)",
+    "pydantic-settings (>=2.8.1,<3.0.0)",
+    "psycopg2 (>=2.9.10,<3.0.0)",
+    "fastapi (>=0.116.1,<0.117.0)",
+    "uvicorn (>=0.35.0,<0.36.0)"
+]
+
+[tool.poetry]
+packages = [{include = "api"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

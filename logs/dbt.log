@@ -159,3 +159,18 @@ Runtime Error
 [0m12:17:37.308776 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000253FF3AB8B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000253808504C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000025380850490>]}
 [0m12:17:37.309864 [debug] [MainThread]: Flushing usage events
 [0m12:17:38.444202 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:20:02.829418 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D95B20B8B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D95C5503D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D95C5501F0>]}
+
+
+============================== 22:20:02.889047 | 30fbb8da-ed52-4707-9b04-a340ad7360fa ==============================
+[0m22:20:02.889047 [info ] [MainThread]: Running with dbt=1.10.4
+[0m22:20:02.890992 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'logs', 'debug': 'False', 'profiles_dir': 'C:\\Users\\redie\\.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'invocation_command': 'dbt run --target dev-latest', 'log_format': 'default', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m22:20:02.892022 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path D:\Software Career\Kifiya 10 Academy\week-7 - data engineering and analytics\raw-telegram-data-to-analytics-api\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m22:20:02.895017 [debug] [MainThread]: Command `dbt run` failed at 22:20:02.893934 after 0.18 seconds
+[0m22:20:02.895017 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D95B20B8B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D95C5504C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D95C550490>]}
+[0m22:20:02.896037 [debug] [MainThread]: Flushing usage events
+[0m22:20:09.452484 [debug] [MainThread]: An error was encountered while trying to flush usage events
