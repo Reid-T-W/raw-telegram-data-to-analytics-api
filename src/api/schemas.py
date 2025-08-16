@@ -21,3 +21,11 @@ class DimDateSchema(BaseModel):
 class DimChannelSchema(BaseModel):
     id: int
     channel_name: str
+
+class AggTopProductsSchema(BaseModel):
+    product_name: str
+    count: int
+
+class MessageAnalyticsSchema(BaseModel):
+    total_no_of_messages: int
+    messages_per_channel: dict
